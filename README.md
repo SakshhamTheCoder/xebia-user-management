@@ -1,13 +1,7 @@
 # User Management Portal
 
-A MERN-stack user management portal with an admin approval workflow.
-
-- **Users** register with username, email, phone, password, and an optional profile picture.
-- A new registration is created in a **pending** state and waits for an admin.
-- An **admin** approves or rejects each request. Only approved users can log in
-  (others are told their account is not approved / was rejected).
-- Admins can **activate / deactivate** an approved account at any time.
-- Admins can **create new admins** from the admin portal.
+A MERN-stack user management portal where users register and admins approve,
+manage, and control access to accounts.
 
 ## Stack
 
@@ -59,6 +53,20 @@ Default seeded admin (change in `.env`):
 
 - email: `admin@example.com`
 - password: `admin123`
+
+#### Environment variables (`backend/.env`)
+
+Copy `backend/.env.example` to `backend/.env` and fill in your values. The real
+`.env` is gitignored and must never be committed.
+
+| Variable             | Description                                         |
+| -------------------- | --------------------------------------------------- |
+| `PORT`               | Backend port (default `5000`)                       |
+| `CLIENT_URL`         | Frontend origin allowed by CORS                     |
+| `MONGO_URI`          | MongoDB connection string (local or Atlas)          |
+| `JWT_SECRET`         | Secret used to sign JWTs                             |
+| `JWT_EXPIRES_IN`     | Token lifetime (e.g. `7d`)                           |
+| `SEED_ADMIN_*`       | Username/email/phone/password for the seeded admin  |
 
 ### 2. Frontend
 
